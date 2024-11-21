@@ -6,6 +6,8 @@ import ForgotPassword from "./pages/forgotPassword/page";
 import ConfirmationEmail from "./pages/confirmEmail/page";
 import NewPassword from "./pages/newPassword/page";
 import UserPage from "./pages/userPage/page";
+import Card from "./components/singleCard";
+import UserMessage from "./components/message";
 export default function Home() {
   return (
     <div className="bg-white">
@@ -16,6 +18,9 @@ export default function Home() {
     {/* <ConfirmationEmail/> */}
     {/* <NewPassword/> */}
     <UserPage/>
+    {/* <UserMessage/> */}
+    
+
     </div>
   );
 }

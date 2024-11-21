@@ -7,9 +7,10 @@ interface DropdownProps {
   options: string[];
   width?: string;
   height?: string;
+  className?: string;
 }
 
-export default function Dropdown({ options, width = '20rem', height = '3rem' }: DropdownProps) {
+export default function Dropdown({ options, width = '20rem', height = '3rem',className }: DropdownProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState<string>(options[0]);
 
