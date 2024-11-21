@@ -12,7 +12,11 @@ const messages = [
         picture: "/hoe.png",
         isActive: true,
         preview: "Hey! How are you?",
-        conversation: ["Hi!", "How are you?", "I'm good, thanks."],
+        conversation: [
+            { text: "Hi!", timestamp: new Date() },
+            { text: "How are you?", timestamp: new Date() },
+            { text: "I'm good, thanks.", timestamp: new Date() }
+        ],
     },
     {
         id: 2,
@@ -20,7 +24,11 @@ const messages = [
         picture: "/hoe.png",
         isActive: false,
         preview: "Got your message, let me know when you’re free.",
-        conversation: ["Hello!", "Are you available today?", "Sure, let's meet."],
+        conversation: [
+            { text: "Hello!", timestamp: new Date() },
+            { text: "Are you available today?", timestamp: new Date() },
+            { text: "Sure, let's meet.", timestamp: new Date() }
+        ],
     },
     {
         id: 3,
@@ -28,8 +36,13 @@ const messages = [
         picture: "/hoe.png",
         isActive: true,
         preview: "Looking forward to meeting tomorrow!",
-        conversation: ["Hi Mike!", "Looking forward to it too.", "See you tomorrow!"],
+        conversation: [
+            { text: "Hi Mike!", timestamp: new Date() },
+            { text: "Looking forward to it too.", timestamp: new Date() },
+            { text: "See you tomorrow!", timestamp: new Date() }
+        ],
     },
+    // Add more messages if necessary...
 ];
 
 export default function UserMessage() {
@@ -52,12 +65,17 @@ export default function UserMessage() {
     const sendMessage = () => {
         if (newMessage.trim() === "" || activeChat === null) return;
 
+        const currentTimestamp = new Date();
+
         setChatData((prevData) =>
             prevData.map((chat) =>
                 chat.id === activeChat
                     ? {
                           ...chat,
-                          conversation: [...chat.conversation, newMessage],
+                          conversation: [
+                              ...chat.conversation,
+                              { text: newMessage, timestamp: currentTimestamp },
+                          ],
                           preview: newMessage,
                       }
                     : chat
@@ -65,6 +83,10 @@ export default function UserMessage() {
         );
 
         setNewMessage("");
+    };
+
+    const formatTimestamp = (timestamp: Date) => {
+        return `${timestamp.getHours()}:${timestamp.getMinutes()} ${timestamp.getDate()}/${timestamp.getMonth() + 1}/${timestamp.getFullYear()}`;
     };
 
     return (
@@ -142,7 +164,7 @@ export default function UserMessage() {
                         {activeConversation?.conversation.map((line, index) => (
                             <div
                                 key={index}
-                                className={`flex ${
+                                className={`flex  ${
                                     index % 2 === 0 ? "justify-end" : "justify-start"
                                 }`}
                             >
@@ -153,8 +175,11 @@ export default function UserMessage() {
                                             : "bg-gray-200 text-gray-800"
                                     }`}
                                 >
-                                    {line}
+                                    {line.text}
                                 </p>
+                                <span className="text-xs text-gray-500 ml-2 mt-10">
+                                    {formatTimestamp(line.timestamp)}
+                                </span>
                             </div>
                         ))}
                     </div>

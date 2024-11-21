@@ -8,6 +8,7 @@ import NewPassword from "./pages/newPassword/page";
 import UserPage from "./pages/userPage/page";
 import Card from "./components/singleCard";
 import UserMessage from "./components/message";
+import SingleProduct from "./pages/singleProduct/page";
 export default function Home() {
   return (
     <div className="bg-white">
@@ -17,9 +18,9 @@ export default function Home() {
     {/* <ForgotPassword/> */}
     {/* <ConfirmationEmail/> */}
     {/* <NewPassword/> */}
-    <UserPage/>
+    {/* <UserPage/> */}
     {/* <UserMessage/> */}
-    
+    <SingleProduct/>
 
     </div>
   );
