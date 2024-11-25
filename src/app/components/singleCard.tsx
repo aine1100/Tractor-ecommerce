@@ -7,16 +7,17 @@ interface CardProps {
     price: string;
     company: string;
     location: string;
+    classname?:string,
 }
 
-export default function Card({ image, name, price, company, location }: CardProps) {
+export default function Card({ image, name, price, company, location ,classname}: CardProps) {
     return (
-        <div className="bg-white border-[1.5px] border-gray-400rounded-md flex flex-col gap-2 w-full h-full">
+        <div className={`bg-white border-[1.5px] border-gray-400rounded-md flex flex-col gap-2 w-full h-full ${classname} `}>
             <div className="flex justify-end items-start text-right px-2 py-1">
                 <FaAddressBook className="text-gray-200 text-xl" />
             </div>
 
-            <img src={image || "/hoe.png"} alt={name} className="w-full h-[300px] object-cover p-3 rounded-t-md" />
+            <img src={image || "/hoe.png"} alt={name} className="w-full h-[300px] object-cover p-3 rounded-md" />
             
             <div className="p-3">
                 <div className="flex items-center justify-between">

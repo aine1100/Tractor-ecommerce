@@ -3,7 +3,7 @@ import { useState } from "react";
 
 interface CardProps {
   description: string;
-  icon: string;
+  icon: JSX.Element;
   explanation: string; 
 }
 

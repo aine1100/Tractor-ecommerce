@@ -9,6 +9,12 @@ import UserPage from "./pages/userPage/page";
 import Card from "./components/singleCard";
 import UserMessage from "./components/message";
 import SingleProduct from "./pages/singleProduct/page";
+import UserProducts from "./pages/products/page";
+import Delivery from "./pages/Delivery/page";
+import Cart from "./pages/products/page";
+import sellerDashboard from "./pages/Dashboard/page";
+import Seller from "./pages/Dashboard/page";
+import Admin from "./pages/Admin/page";
 export default function Home() {
   return (
     <div className="bg-white">
@@ -20,7 +26,12 @@ export default function Home() {
     {/* <NewPassword/> */}
     {/* <UserPage/> */}
     {/* <UserMessage/> */}
-    <SingleProduct/>
+    {/* <SingleProduct/> */}
+    {/* <UserProducts/> */}
+    {/* <Delivery/> */}
+    {/* <Seller/> */}
+    <Admin/>
+    
 
     </div>
   );
